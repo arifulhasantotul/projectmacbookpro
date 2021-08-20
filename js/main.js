@@ -1,6 +1,7 @@
 // get memory and storage price 
 function getPrice(product, isMaximum, isMedium) {
-    // access text id 
+    
+    // access text id
     const textId = document.getElementById('extra_' + product);
     // get inner text 
     const text = textId.innerText;
@@ -45,6 +46,8 @@ function getDeliveryCost(isFast) {
 // get total price 
 function getTotalPrice() {
     
+    // discount price 
+    const discountPrice = document.getElementById('discount_price');
     // total price 
     const totalPrice = document.getElementById('total_price');
     // best price
@@ -60,6 +63,27 @@ function getTotalPrice() {
     const totalCost = bestPrice + memoryCost + storageCost + deliveryCost;
 
     totalPrice.innerText = totalCost;
+    discountPrice.innerText = totalCost;
+
+}
+function getDiscount() {
+
+    // total price 
+    const totalPrice = parseFloat(document.getElementById('total_price').innerText);
+    // get code 
+    const codeInput = document.getElementById('discount_input');
+    // code value 
+    const codeValue = codeInput.value;
+    // discount price id 
+    const discountPriceId = document.getElementById('discount_price');
+    let discountPrice = discountPriceId.innerText;
+    if (codeValue.toLowerCase() == 'stevekaku') {
+        // 20% discount 
+        discountPrice = totalPrice - ((totalPrice * 20) / 100);
+    }
+
+    discountPriceId.innerText = discountPrice;
+    codeInput.value = '';
 
 }
 // 8GB memory
@@ -97,4 +121,10 @@ document.getElementById('delivery_late').addEventListener('click', function () {
 document.getElementById('delivery_fast').addEventListener('click', function () {
     
     getDeliveryCost(true);
+});
+
+// discount button 
+document.getElementById('discount_button').addEventListener('click', function () {
+    
+    getDiscount();
 });

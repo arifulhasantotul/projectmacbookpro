@@ -19,6 +19,7 @@
             color: #fff;
         }
     </style>
+    
 </head>
 <body>
     
@@ -105,8 +106,8 @@
                     <!-- promo code  -->
                     <h6 class="col-8 mt-3">Add Promo code</h6>
                     <div class="col-12">
-                        <input class="my-2" type="text">
-                        <button class="btn btn-danger btn-sm mb-1 shadow-none">Apply</button>
+                        <input id="discount_input" class="my-2" type="text">
+                        <button id="discount_button" class="btn btn-danger btn-sm mb-1 shadow-none">Apply</button>
                     </div>
                 </div>
                 <!-- price division end  -->
@@ -120,9 +121,9 @@
     </main>
     <!-- main end  -->
 
-    <footer>
+    <footer class="container">
         <hr>
-        <h1 class="text-center">Total : $<span>1299</span></h1>
+        <h1 class="text-center">Total : $<span id="discount_price">1299</span></h1>
     </footer>
     
     <!-- js bundle bootstrap  -->
